@@ -28,7 +28,7 @@ Cerebras 是 AI 聊天接口供应商，截至 2025 年 2 月 1 日，他们提�
 
 ### 设置 token（即从浏览器获得的值）
 
-方法一：设置环境变量 `SERVER_API_KEY`
+方法一：设置环境变量 `AUTHJS_SESSION_TOKEN`
 
 `set AUTHJS_SESSION_TOKEN=authjs.session-token`
 
