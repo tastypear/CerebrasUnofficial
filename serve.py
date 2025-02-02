@@ -32,7 +32,7 @@ cerebras_ai = CerebrasUnofficial(authjs_session_token)
 
 app = Flask(__name__)
 app.json.sort_keys = False
-parser = argparse.ArgumentParser(description='Cerebras.AI API.')
+parser = argparse.ArgumentParser(description='Cerebras.AI API')
 parser.add_argument('--host', type=str, help='Set the ip address.(default: 0.0.0.0)', default='0.0.0.0')
 parser.add_argument('--port', type=int, help='Set the port.(default: 7860)', default=7860)
 args = parser.parse_args()
@@ -51,6 +51,21 @@ class Provider:
         if self.request_key == server_api_key:
             self.api_url = cerebras_ai.api_url
             self.key = cerebras_ai.get_api_key()
+
+@app.route('/api', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return f'''
+        renew/change token by visiting:<br>
+        {request.host_url}renew?key={{your server api key}}&token={{your Cerebras authjs_session_token}}<br>
+        <br>
+        Your interface:<br>
+        {request.host_url}v1/chat/completions OR<br>
+        {request.host_url}api/v1/chat/completions<br>
+        <br>
+        For more infomation by visiting:<br>
+        https://github.com/tastypear/CerebrasUnofficial
+    '''
 
 @app.route('/api/renew', methods=['GET', 'POST'])
 @app.route('/renew', methods=['GET', 'POST'])
