@@ -34,8 +34,6 @@ Cerebras 是 AI 聊天接口供应商，截至 2025 年 2 月 1 日，他们提�
 
 方法二：修改 `serve.py` 文件中 `authjs_session_token` 的值
 
-`set AUTHJS_SESSION_TOKEN=authjs.session-token`
-
 方法三：访问 /renew?key={api key}&token={token} 接口
 
 如：http://127.0.0.1:7860/renew?key=my-api-key&token=a1b2c3d4-5e6f-1a2b-3c4d-12345678abcd
@@ -46,7 +44,7 @@ Cerebras 是 AI 聊天接口供应商，截至 2025 年 2 月 1 日，他们提�
 
 方法一：设置环境变量 `SERVER_API_KEY`
 
-`set SERVER_API_KEY=my-api-key`
+`set AUTHJS_SESSION_TOKEN=authjs.session-token`
 
 方法二：修改 `serve.py` 文件中 `server_api_key` 的值
 
